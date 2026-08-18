@@ -1,13 +1,22 @@
 :root{
-  --bg:#14161F; --bg-alt:#0F1017; --panel:#1C1F2B;
-  --panel2:#232738; --border:#2E3242; --border-soft:#252938;
-  --text:#EDEBE3; --muted:#9A9DAC; --muted-2:#6D7080;
-  --signature:#8B7CF6; --signature-soft:#8B7CF633;
-  --green:#6FCF97; --green-soft:#6FCF9722;
-  --amber:#E8B34F; --amber-soft:#E8B34F22;
-  --red:#E2685A; --red-soft:#E2685A22;
-  --blue:#7C9CBF; --blue-soft:#7C9CBF22;
-  --grey:#8A8D9C; --grey-soft:#8A8D9C22;
+  /* Grayscale palette — Cinza Absoluto → Cinza Nevoado */
+  --bg:#191919;        /* Cinza Absoluto */
+  --bg-alt:#111111;    /* near black — deeper sections */
+  --panel:#393939;     /* Cinza Profundo — cards & panels */
+  --panel2:#2C2C2C;    /* between Absoluto & Profundo — hover states */
+  --border:#484848;    /* slightly lighter than panel */
+  --border-soft:#303030;
+  --text:#E0E0E0;      /* Cinza Nevoado — primary text */
+  --muted:#9C9C9C;     /* Cinza Claro — secondary text */
+  --muted-2:#6B6B6B;   /* Cinza Médio — tertiary text */
+  --signature:#FFFFFF; /* white accent on dark bg */
+  --signature-soft:rgba(255,255,255,0.08);
+  /* Status colours — kept for semantic data badges only */
+  --green:#6FCF97; --green-soft:#6FCF9720;
+  --amber:#E8B34F; --amber-soft:#E8B34F20;
+  --red:#E2685A;   --red-soft:#E2685A20;
+  --blue:#9C9C9C;  --blue-soft:#9C9C9C18;  /* local-tool = mid-gray */
+  --grey:#6B6B6B;  --grey-soft:#6B6B6B18;
   --font-display:'Space Grotesk',sans-serif;
   --font-body:'IBM Plex Sans',sans-serif;
   --font-mono:'IBM Plex Mono',monospace;
@@ -32,8 +41,8 @@ h1,h2,h3{font-family:var(--font-display); font-weight:600; letter-spacing:-0.01e
 
 /* NAV */
 nav.topnav{
-  position:sticky; top:0; z-index:50; background:rgba(20,22,31,.86);
-  backdrop-filter:blur(10px); border-bottom:1px solid var(--border-soft);
+  position:sticky; top:0; z-index:50; background:rgba(25,25,25,0.92);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--border-soft);
 }
 nav.topnav .inner{
   max-width:1180px; margin:0 auto; padding:14px 28px; display:flex;
@@ -183,7 +192,7 @@ tr.hidden{display:none;}
 .callout{background:linear-gradient(135deg,var(--red-soft),transparent); border:1px solid var(--red); border-left:4px solid var(--red); border-radius:10px; padding:20px 22px; margin:28px 0;}
 .callout h4{margin:0 0 8px; font-family:var(--font-body); font-size:14.5px; color:var(--text);}
 .callout p{margin:0; font-size:13.5px; color:var(--muted); line-height:1.6;}
-.callout .mono-line{display:block; margin-top:10px; font-family:var(--font-mono); font-size:11.5px; color:var(--red); background:#0B0C12; padding:10px 12px; border-radius:6px;}
+.callout .mono-line{display:block; margin-top:10px; font-family:var(--font-mono); font-size:11.5px; color:var(--red); background:#111111; padding:10px 12px; border-radius:6px;}
 .caveat-box{background:var(--panel); border:1px dashed var(--border); border-radius:10px; padding:18px 20px; font-size:13.5px; color:var(--muted); margin-top:20px;}
 .caveat-box b{color:var(--text);}
 
@@ -195,12 +204,13 @@ tr.hidden{display:none;}
 .repo-row .d{color:var(--muted); font-size:12.5px;}
 .btn{
   font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.05em;
-  background:var(--signature); color:#0F1017; padding:9px 16px; border-radius:7px; text-decoration:none;
-  font-weight:600; white-space:nowrap;
+  background:var(--signature); color:#111111; padding:9px 16px; border-radius:7px; text-decoration:none;
+  font-weight:700; white-space:nowrap; transition:opacity .15s;
 }
+.btn:hover{opacity:0.85;}
 .btn.ghost{background:transparent; border:1px solid var(--border); color:var(--text);}
 pre.term{
-  background:#0B0C12; border:1px solid var(--border); border-radius:10px; padding:18px 20px;
+  background:#111111; border:1px solid var(--border); border-radius:10px; padding:18px 20px;
   font-family:var(--font-mono); font-size:12.5px; color:var(--green); overflow-x:auto; line-height:1.7;
 }
 pre.term .c{color:var(--muted-2);}
