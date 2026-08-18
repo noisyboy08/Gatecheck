@@ -13,7 +13,7 @@
   --font-mono:'IBM Plex Mono',monospace;
 }
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth; scroll-padding-top:62px;}
 body{
   margin:0; background:var(--bg); color:var(--text);
   font-family:var(--font-body); font-size:16px; line-height:1.55;
@@ -110,7 +110,7 @@ td, th{overflow-wrap:break-word; word-break:break-word;}
 .table-wrap thead th{
   text-align:left; background:var(--panel2); color:var(--muted); font-weight:500;
   font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
-  padding:11px 14px; border-bottom:1px solid var(--border); position:sticky; top:53px;
+  padding:11px 14px; border-bottom:1px solid var(--border); position:sticky; top:62px;
 }
 tbody tr{border-bottom:1px solid var(--border-soft); background:var(--panel);}
 tbody tr:hover{background:var(--panel2);}
