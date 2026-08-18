@@ -2,7 +2,9 @@
 
 A Composio AI Product Ops Intern take-home assignment. For each of 100 apps across 10 categories, **Gatecheck** determines auth method(s), self-serve vs. gated status, API surface, MCP availability, and a buildability verdict — with a citable source for every claim — then surfaces the patterns across all 100 instead of just filling in rows.
 
-**Live page:** `site/index.html` (single self-contained HTML file — open it directly in a browser, or deploy it anywhere).
+**🌐 Live page:** [https://gatecheck-dusky.vercel.app](https://gatecheck-dusky.vercel.app)
+
+**📁 Source repo:** [https://github.com/noisyboy08/Gatecheck](https://github.com/noisyboy08/Gatecheck)
 
 ## What's in this repo
 
@@ -21,6 +23,7 @@ Gatecheck/
 ├── data/
 │   ├── apps_dataset.json     all 100 rows, the actual findings
 │   └── verification_log.json the first-pass vs. verified comparison
+├── vercel.json               tells Vercel to serve from site/
 └── README.md                 this file
 ```
 
@@ -107,15 +110,14 @@ cd site && python3 build_site.py   # injects template + css + js + data → inde
 ## Deploying the page
 
 `site/index.html` is fully self-contained (data and JS are inlined) — it works
-opened directly from disk, or dropped anywhere. Two ways to get a live link fast:
+opened directly from disk, or dropped anywhere.
 
-**GitHub Pages** (recommended):
-```bash
-# repo Settings → Pages → deploy from branch → main, /site as the folder
-```
+**This project is live on Vercel:**
+> [https://gatecheck-dusky.vercel.app](https://gatecheck-dusky.vercel.app)
 
-**Instant static host:** drag the `site/` folder onto https://app.netlify.com/drop
-for a live URL with no account needed.
+**GitHub Pages** — enable in repo Settings → Pages → deploy from branch → `main`, `/site` as the folder. Live URL: `https://noisyboy08.github.io/Gatecheck/`
+
+**Instant static host:** drag the `site/` folder onto https://app.netlify.com/drop for a live URL with no account needed.
 
 ## Honesty notes
 
