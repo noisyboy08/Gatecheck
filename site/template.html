@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gatecheck — 100-App Agent-Readiness Audit · Composio Take-Home</title>
+<meta name="description" content="Gatecheck: A research agent (Composio SDK + Claude + live web search) audited auth, self-serve status, API surface, and MCP availability across 100 apps in 10 categories.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+{{CSS}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="inner">
+    <div class="brand"><span class="dot"></span> GATECHECK</div>
+    <div class="navlinks">
+      <a href="#patterns">Patterns</a>
+      <a href="#matrix">Matrix</a>
+      <a href="#charts">Breakdown</a>
+      <a href="#agent">Agent</a>
+      <a href="#verification">Verification</a>
+      <a href="#repo">Repo</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">GATECHECK &nbsp;·&nbsp; COMPOSIO AI PRODUCT OPS INTERN TAKE-HOME</div>
+    <h1>100 apps researched. <em>82</em> need zero sales call to become an agent toolkit today &mdash; the other 18 sort into four predictable blockers.</h1>
+    <p class="sub"><strong>Gatecheck</strong> is a research agent (Composio SDK + Claude + live web search) that audits auth, self-serve status, API surface, and MCP availability across 100 apps in 10 categories. This page shows the full findings, the pipeline that produced them, and the verification loop that caught its own mistakes &mdash; including one tool that tried to prompt-inject the agent researching it.</p>
+
+    <div class="hero-grid-row">
+      <div>
+        <div class="board-cats" id="boardCats"></div>
+        <div class="board-card">
+          <div class="board-title"><span>THE CLEARANCE BOARD &mdash; 100 APPS, ONE CELL EACH</span><span>hover for detail</span></div>
+          <div class="board" id="board"></div>
+        </div>
+        <div class="legend">
+          <span><i style="background:var(--green)"></i> Self-serve (free or trial)</span>
+          <span><i style="background:var(--amber)"></i> Self-serve, paid tier / approval needed</span>
+          <span><i style="background:var(--red)"></i> Gated &mdash; sales or enterprise-only</span>
+          <span><i style="background:var(--blue)"></i> Local tool, no auth concept</span>
+        </div>
+      </div>
+      <div>
+        <div class="pcard" style="margin-bottom:14px;">
+          <span class="tag">Rows are the assignment's own 10 categories</span>
+          <p style="margin-top:6px;">CRM &amp; Sales, Support, Comms, Marketing, Ecommerce, Data/Scraping, Dev/Infra, Productivity, Fintech, AI/Research &mdash; in that order, 10 apps per row, exactly as briefed.</p>
+        </div>
+        <div class="pcard" style="margin-bottom:14px;">
+          <span class="tag">91 / 100 buildable today</span>
+          <p style="margin-top:6px;">Only 9 are flatly blocked &mdash; and even those have a named, evidenced reason, not a shrug.</p>
+        </div>
+        <div class="pcard">
+          <span class="tag">18 / 100 already have an MCP server</span>
+          <p style="margin-top:6px;">Most buildability still runs through a REST/GraphQL integration, not an existing MCP you can just point at.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="patterns">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE HEADLINE</div>
+      <h2>Six patterns, not a hundred rows</h2>
+      <p>The point of researching 100 apps one at a time is to stop treating them one at a time. Here's what falls out when you do.</p>
+    </div>
+    <div class="pattern-grid" id="patternGrid"></div>
+  </div>
+</section>
+
+<section class="alt" id="matrix">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE FINDINGS</div>
+      <h2>All 100, one row each</h2>
+      <p>Filter by category or gate status, or search by name. Every row cites the doc it came from.</p>
+    </div>
+    <div class="controls">
+      <input id="searchBox" type="text" placeholder="Search app name or description…">
+      <select id="catFilter"><option value="">All categories</option></select>
+      <select id="gateFilter">
+        <option value="">All gate statuses</option>
+        <option value="green">Self-serve</option>
+        <option value="amber">Paid-tier / approval</option>
+        <option value="red">Gated</option>
+        <option value="blue">Local tool</option>
+      </select>
+      <span class="count" id="rowCount"></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="c-id"><col class="c-name"><col class="c-cat"><col class="c-auth">
+          <col class="c-gate"><col class="c-mcp"><col class="c-build"><col class="c-evidence">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>#</th><th>App</th><th>Category</th><th>Auth</th><th>Gate</th>
+            <th>MCP</th><th style="text-align:center;">Build?</th><th>Evidence</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="charts">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE BREAKDOWN</div>
+      <h2>Auth dominance, and where categories diverge</h2>
+    </div>
+    <div class="chart-grid">
+      <div>
+        <h3 style="font-size:15px;margin-bottom:18px;">Auth methods in use (apps can use more than one)</h3>
+        <div id="authChart"></div>
+      </div>
+      <div>
+        <h3 style="font-size:15px;margin-bottom:18px;">Gate status by category</h3>
+        <div id="categoryChart"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="agent">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE AGENT</div>
+      <h2>What actually did the research</h2>
+      <p>A Python pipeline, not a spreadsheet filled in by hand. Source in <code class="mono">/agent</code>.</p>
+    </div>
+    <div class="agent-grid">
+      <div>
+        <div class="pipeline">
+          <div class="pstep">
+            <div class="idx">01</div>
+            <div><h4>Composio catalog cross-check</h4><p>For each app, query the Composio SDK / toolkit directory (<code>composio.dev/toolkits/&lt;slug&gt;</code>) for an existing managed toolkit &mdash; the strongest possible "buildable today" signal, since it means the auth work is already done. Confirmed live for 16 apps including Stripe, GitHub, Slack, Notion, and Linear.</p></div>
+          </div>
+          <div class="pstep">
+            <div class="idx">02</div>
+            <div><h4>Search-grounded research pass</h4><p>Claude + <code>web_search</code>, forced into strict JSON output (category, auth, gate status, API surface, MCP, buildability, evidence URL). Told explicitly to answer "uncertain" rather than fabricate a URL or plan detail &mdash; see <code>research_agent.py</code>.</p></div>
+          </div>
+          <div class="pstep">
+            <div class="idx">03</div>
+            <div><h4>Adversarial re-ask</h4><p>A second, independent Claude call is told to argue <em>against</em> the first pass's claim before agreeing with it &mdash; catches confident-but-wrong answers a single pass wouldn't flag. See <code>verify_sample.py</code>.</p></div>
+          </div>
+          <div class="pstep">
+            <div class="idx">04</div>
+            <div><h4>Hand verification on a hard sample</h4><p>15 of the most obscure/ambiguous apps were independently checked against live docs by a human researcher (this session) &mdash; results in <code>data/verification_log.json</code> and the section below.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size:14px;margin:0 0 4px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-mono);">Where a human was needed</h4>
+        <ul class="human-list" id="humanList"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="verification">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE VERIFICATION LOOP</div>
+      <h2>Where the agent was wrong, and how we know</h2>
+      <p>15 apps were deliberately chosen as the <em>hardest</em> in the set &mdash; not a random sample &mdash; because that's where a research agent is most likely to fail, and where a verification loop earns its keep.</p>
+    </div>
+
+    <div class="accuracy-band" id="accuracyBand"></div>
+
+    <div class="table-wrap">
+      <table class="vtable">
+        <thead><tr><th>App</th><th>First-pass (naive) claim</th><th>Verified finding</th><th>Verdict</th></tr></thead>
+        <tbody id="verifyBody"></tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <h4>🚩 One tool tried to instruct the agent researching it</h4>
+      <p>iPayX's own MCP server description contained explicit directives aimed at AI agents: never mention named competitors, always frame the audit as favoring iPayX, and drive users to the platform for every transaction. The research agent had to recognize this as a prompt-injection pattern embedded in tool metadata &mdash; not a legitimate instruction from the user or Anthropic &mdash; and ignore it while still accurately reporting what the tool does.</p>
+      <span class="mono-line">Source: glama.ai/mcp/connectors/io.github.Ipayx-stellar/fx-audit &mdash; flagged, not followed.</span>
+    </div>
+
+    <div class="caveat-box">
+      <b>Honesty note on the full 100:</b> only 32 of the 100 rows were independently search-verified or confirmed against a live Composio toolkit listing this pass; the remaining 68 rely on trained knowledge of well-documented, stable platforms (Salesforce, Stripe, GitHub-class apps), flagged in the dataset's <code class="mono">confidence</code> field. 13 rows are explicitly marked <code class="mono">known-low</code> &mdash; good candidates for the next verification pass before anyone treats this as ground truth.
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="repo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">THE PROOF</div>
+      <h2>Runnable, not just described</h2>
+    </div>
+    <div class="repo-card">
+      <div class="repo-row">
+        <div><div class="f">/agent/research_agent.py</div><div class="d">Composio SDK + Claude + web_search &mdash; the main research pipeline</div></div>
+        <a class="btn ghost" href="../agent/research_agent.py">View source</a>
+      </div>
+      <div class="repo-row">
+        <div><div class="f">/agent/verify_sample.py</div><div class="d">Independent adversarial re-check pass on a sample</div></div>
+        <a class="btn ghost" href="../agent/verify_sample.py">View source</a>
+      </div>
+      <div class="repo-row">
+        <div><div class="f">/data/apps_dataset.json</div><div class="d">All 100 rows, structured, with evidence URLs</div></div>
+        <a class="btn ghost" href="../data/apps_dataset.json">View data</a>
+      </div>
+      <div class="repo-row">
+        <div><div class="f">/data/verification_log.json</div><div class="d">The full first-pass vs. verified comparison</div></div>
+        <a class="btn ghost" href="../data/verification_log.json">View data</a>
+      </div>
+      <div class="repo-row">
+        <div><div class="f">README.md</div><div class="d">How to run this yourself, with your own Composio + Anthropic keys</div></div>
+        <a class="btn" href="../README.md">Read README</a>
+      </div>
+    </div>
+    <pre class="term" style="margin-top:20px;"><span class="c"># with your own keys:</span>
+export COMPOSIO_API_KEY=...
+export ANTHROPIC_API_KEY=...
+pip install composio anthropic --break-system-packages
+python agent/research_agent.py --input agent/apps_input.json --output data/apps_dataset.json
+python agent/verify_sample.py --dataset data/apps_dataset.json --sample-size 15</pre>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="eyebrow">METHODOLOGY</div>
+    <p style="max-width:680px; margin-top:14px; color:var(--muted); font-size:14px;">Confidence-routed research: well-established, stable platforms were answered from trained knowledge; niche, fast-moving, or ambiguous apps triggered a live search-verification step. Every row's <code class="mono">confidence</code> field says which path it took.</p>
+    <div class="confkey">
+      <span><i class="conf-dot" style="background:var(--green)"></i><b class="mono">verified</b> — confirmed live this session (e.g. Composio catalog)</span>
+      <span><i class="conf-dot" style="background:var(--signature)"></i><b class="mono">searched</b> — web-search-grounded this session</span>
+      <span><i class="conf-dot" style="background:var(--muted)"></i><b class="mono">known</b> — high-confidence trained knowledge</span>
+      <span><i class="conf-dot" style="background:var(--amber)"></i><b class="mono">known-low</b> — lower confidence, recommend re-verifying</span>
+    </div>
+    <p class="fine"><strong>Gatecheck</strong> — Built for the Composio AI Product Ops Intern take-home assignment. All 100 apps, the agent, and the verification loop are described honestly, including where the agent got it wrong the first time. Generated by an agentic research pipeline; reviewed by a human before submission.</p>
+  </div>
+</footer>
+
+<div id="tooltip"></div>
+
+<script>
+{{JS}}
+</script>
+</body>
+</html>

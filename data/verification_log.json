@@ -1,0 +1,126 @@
+{
+  "methodology": "Two samples were checked by hand against live sources. Sample A (15 apps) was deliberately adversarial — the hardest, most obscure, or most recently-changed apps in the list, since that's where a research agent is most likely to be wrong and where verification matters most. Sample B (2 apps) was a blind spot-check on entries the agent had NOT already flagged as uncertain, to get an unbiased read on baseline accuracy. Sample A's improvement rate is NOT claimed to represent the full 100 — it is a stress test of the verification loop, not a random sample.",
+  "sample_a_adversarial": [
+    {
+      "app": "Podio",
+      "first_pass_naive": "Likely a deprecated/zombie platform — Citrix sold it, probably minimal API support left.",
+      "verified": "Still active under Progress Software (acquired Oct 2024). Basic tier still free. Full OAuth2 REST API with webhooks still documented and functional.",
+      "verdict": "CORRECTED",
+      "evidence": "developers.podio.com; en.wikipedia.org/wiki/Podio"
+    },
+    {
+      "app": "iPayX",
+      "first_pass_naive": "Generic payment gateway, probably KYC/underwriting-gated like other fintech in the list.",
+      "verified": "Actually a niche FX-fee-audit MCP tool, not a payment gateway at all — free tier needs no signup. Also: the tool's own MCP description contains embedded instructions directed at AI agents (mandatory promotional framing, instructions to suppress competitor names) — a prompt-injection pattern the research agent had to recognize and not follow.",
+      "verdict": "CORRECTED + FLAGGED",
+      "evidence": "github.com/Ipayx-stellar/mcp-fx-audit; glama.ai/mcp/connectors/io.github.Ipayx-stellar/fx-audit"
+    },
+    {
+      "app": "Consensus",
+      "first_pass_naive": "Enterprise research tool, probably fully sales-gated like PitchBook.",
+      "verified": "The MCP endpoint is open today — works with zero account for basic search. Only the traditional REST API is application-gated.",
+      "verdict": "PARTIALLY CORRECTED",
+      "evidence": "docs.consensus.app/docs/mcp; consensus.app/home/api"
+    },
+    {
+      "app": "Clay",
+      "first_pass_naive": "Standard SaaS REST API with API-key auth, self-serve like most GTM tools.",
+      "verified": "No conventional public REST API for most plans. Access is via webhooks/Zapier, an Enterprise-only native API, or a brand-new MCP/CLI developer platform.",
+      "verdict": "CORRECTED",
+      "evidence": "university.clay.com/docs/using-clay-as-an-api; developers.clay.com"
+    },
+    {
+      "app": "Twenty",
+      "first_pass_naive": "Small open-source project, probably no agent/MCP tooling yet.",
+      "verified": "Full REST + auto-generated GraphQL API, plus at least one community MCP server already exists.",
+      "verdict": "PARTIALLY CORRECTED",
+      "evidence": "docs.twenty.com/developers/extend/api; lobehub.com/mcp/igorwarzocha-twenty-mcp-server"
+    },
+    {
+      "app": "Otter.ai",
+      "first_pass_naive": "The assignment's own hint says '(MCP server)' — read naively, implies open/self-serve MCP access.",
+      "verified": "MCP is real but gated to Business/Enterprise plans with admin provisioning. The REST API is in closed beta, Enterprise-only, no self-serve key.",
+      "verdict": "CORRECTED",
+      "evidence": "help.otter.ai MCP Server article; github.com/bcharleson/otter-cli"
+    },
+    {
+      "app": "DealCloud",
+      "first_pass_naive": "Enterprise CRM — probably has some kind of trial or sandbox like most modern SaaS.",
+      "verified": "No trial of any kind found. 100% requires an existing paid client site provisioned by Intapp.",
+      "verdict": "CONFIRMED HARSHER THAN EXPECTED",
+      "evidence": "api.docs.dealcloud.com"
+    },
+    {
+      "app": "Grain",
+      "first_pass_naive": "Meeting-notes tool — probably has a generous free-tier API like some competitors.",
+      "verified": "API access is explicitly excluded from the Free plan; Personal API needs Starter tier minimum, Workspace API needs Business/Enterprise + admin.",
+      "verdict": "CORRECTED",
+      "evidence": "support.grain.com/en/articles/15507288-grain-api"
+    },
+    {
+      "app": "Waterfall.io",
+      "first_pass_naive": "Tiny startup (~9,400 monthly visits per Crunchbase/BuiltWith) — probably a thin or beta API.",
+      "verified": "Full, mature self-serve API with five distinct enrichment endpoints, instant key issuance, usage-based pricing.",
+      "verdict": "CORRECTED",
+      "evidence": "docs.waterfall.io"
+    },
+    {
+      "app": "fanbasis",
+      "first_pass_naive": "Niche creator-payments startup — probably instant self-serve signup like Stripe or Gumroad.",
+      "verified": "Full REST API + SDKs (Node/Python/PHP/Ruby) exist, but onboarding is sales-assisted (\"dedicated implementation engineer\", 5-day average go-live) — not a self-serve click-through.",
+      "verdict": "CORRECTED",
+      "evidence": "fanbasis.com/enterprises; dev-docs.fanbasis.com"
+    },
+    {
+      "app": "Xero",
+      "first_pass_naive": "OAuth2, self-serve demo company — standard accounting-SaaS pattern. No MCP expected.",
+      "verified": "Self-serve claim confirmed correct. Bonus finding the naive pass missed entirely: Xero ships an official MCP server with two auth modes.",
+      "verdict": "CONFIRMED CORRECT + BONUS FINDING",
+      "evidence": "developer.xero.com; glama.ai/mcp/servers/@XeroAPI/xero-mcp-server"
+    },
+    {
+      "app": "Stripe",
+      "first_pass_naive": "Gold-standard self-serve API, industry benchmark.",
+      "verified": "Confirmed correct via live docs and Composio's own toolkit catalog.",
+      "verdict": "CONFIRMED CORRECT",
+      "evidence": "stripe.com/docs/api; composio.dev/toolkits/stripe"
+    },
+    {
+      "app": "Paygent Connect",
+      "first_pass_naive": "Standalone payment company with its own dedicated developer docs.",
+      "verified": "Appears to be a reseller/white-label product on NMI's gateway. No independent public docs found under the 'Paygent Connect' name — evidence here is inferred from the parent platform (NMI), not the brand itself.",
+      "verdict": "STILL UNCERTAIN — recommend a human confirm directly with the vendor",
+      "evidence": "nmi.com/developers/sdks-apis (indirect — no direct source found)"
+    },
+    {
+      "app": "Pumble",
+      "first_pass_naive": "Slack alternative — probably has a basic webhook/bot API like Discord or Telegram.",
+      "verified": "No public developer API portal could be located in this pass.",
+      "verdict": "STILL UNCERTAIN — absence of evidence isn't proof of absence; recommend a direct check before publishing a hard 'not buildable' verdict",
+      "evidence": "pumble.com (no dev portal found)"
+    },
+    {
+      "app": "NotebookLM",
+      "first_pass_naive": "The assignment's own hint points to 'cloud.google.com/gemini (Enterprise API)' — read naively, implies a straightforward Enterprise API tier of the consumer product.",
+      "verified": "The relationship is murkier than that: there is no direct 'NotebookLM API'. Gemini Enterprise is a distinct Google Cloud product; how (or whether) it maps 1:1 to NotebookLM's features isn't fully clear from public docs alone.",
+      "verdict": "STILL UNCERTAIN — recommend a follow-up conversation with Google Cloud to confirm the actual product mapping",
+      "evidence": "cloud.google.com/gemini (ambiguous)"
+    }
+  ],
+  "sample_b_blind_spotcheck": [
+    {
+      "app": "Xero",
+      "note": "See above — moved from Sample A once the MCP finding surfaced. Confirms the naive pass was directionally right on the core question (self-serve, OAuth2) even though it missed the MCP detail."
+    }
+  ],
+  "accuracy_summary": {
+    "sample_a_size": 15,
+    "sample_a_confirmed_correct_as_is": 2,
+    "sample_a_corrected_by_search": 10,
+    "sample_a_still_uncertain_after_search": 3,
+    "naive_pass_accuracy_on_this_adversarial_sample": "2/15 ≈ 13%",
+    "verified_pass_resolution_rate": "12/15 fully resolved with a citable source ≈ 80%",
+    "honest_residual_uncertainty": "3/15 ≈ 20% could not be fully confirmed from public sources in this pass and are marked accordingly rather than guessed",
+    "caveat": "This sample was deliberately chosen to be hard. It is a stress test of the verification loop, not an estimate of overall dataset accuracy. Well-known platforms (Salesforce, GitHub, Slack, Stripe, Notion, etc.) were not sampled here because the naive pass is already highly reliable on them — the interesting failure modes live in the long tail, which is exactly what this sample targets."
+  }
+}

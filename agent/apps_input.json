@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "name": "Salesforce",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 2,
+    "name": "HubSpot",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 3,
+    "name": "Pipedrive",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 4,
+    "name": "Attio",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 5,
+    "name": "Twenty",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 6,
+    "name": "Podio",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 7,
+    "name": "Zoho CRM",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 8,
+    "name": "Close",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 9,
+    "name": "Copper",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 10,
+    "name": "DealCloud",
+    "website_hint": null,
+    "category": "CRM & Sales"
+  },
+  {
+    "id": 11,
+    "name": "Zendesk",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 12,
+    "name": "Intercom",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 13,
+    "name": "Freshdesk",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 14,
+    "name": "Front",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 15,
+    "name": "Pylon",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 16,
+    "name": "LiveAgent",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 17,
+    "name": "Plain",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 18,
+    "name": "Help Scout",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 19,
+    "name": "Gorgias",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 20,
+    "name": "Gladly",
+    "website_hint": null,
+    "category": "Support & Helpdesk"
+  },
+  {
+    "id": 21,
+    "name": "Slack",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 22,
+    "name": "Twilio",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 23,
+    "name": "Zoho Cliq",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 24,
+    "name": "Lark (Larksuite)",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 25,
+    "name": "Pumble",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 26,
+    "name": "Discord",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 27,
+    "name": "Telegram",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 28,
+    "name": "WhatsApp Business",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 29,
+    "name": "Aircall",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 30,
+    "name": "Vonage",
+    "website_hint": null,
+    "category": "Communications & Messaging"
+  },
+  {
+    "id": 31,
+    "name": "Google Ads",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 32,
+    "name": "Meta Ads",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 33,
+    "name": "LinkedIn Ads",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 34,
+    "name": "GoHighLevel",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 35,
+    "name": "Mailchimp",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 36,
+    "name": "Klaviyo",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 37,
+    "name": "systeme.io",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 38,
+    "name": "Pinterest",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 39,
+    "name": "Threads (Meta)",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 40,
+    "name": "SendGrid",
+    "website_hint": null,
+    "category": "Marketing, Ads & Social"
+  },
+  {
+    "id": 41,
+    "name": "Shopify",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 42,
+    "name": "WooCommerce",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 43,
+    "name": "BigCommerce",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 44,
+    "name": "Salesforce Commerce Cloud",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 45,
+    "name": "Magento (Adobe Commerce)",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 46,
+    "name": "Squarespace",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 47,
+    "name": "Ecwid",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 48,
+    "name": "Gumroad",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 49,
+    "name": "Amazon Selling Partner API",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 50,
+    "name": "fanbasis",
+    "website_hint": null,
+    "category": "Ecommerce"
+  },
+  {
+    "id": 51,
+    "name": "DataForSEO",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 52,
+    "name": "SE Ranking",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 53,
+    "name": "Ahrefs",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 54,
+    "name": "MrScraper",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 55,
+    "name": "Apify",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 56,
+    "name": "Firecrawl",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 57,
+    "name": "Bright Data",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 58,
+    "name": "Sherlock",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 59,
+    "name": "Waterfall.io",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 60,
+    "name": "Clay",
+    "website_hint": null,
+    "category": "Data, SEO & Scraping"
+  },
+  {
+    "id": 61,
+    "name": "GitHub",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 62,
+    "name": "Vercel",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 63,
+    "name": "Netlify",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 64,
+    "name": "Cloudflare",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 65,
+    "name": "Supabase",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 66,
+    "name": "Neo4j",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 67,
+    "name": "Snowflake",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 68,
+    "name": "MongoDB Atlas",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 69,
+    "name": "Datadog",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 70,
+    "name": "Sentry",
+    "website_hint": null,
+    "category": "Developer, Infra & Data"
+  },
+  {
+    "id": 71,
+    "name": "Notion",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 72,
+    "name": "Airtable",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 73,
+    "name": "Linear",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 74,
+    "name": "Jira",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 75,
+    "name": "Asana",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 76,
+    "name": "Monday.com",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 77,
+    "name": "ClickUp",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 78,
+    "name": "Coda",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 79,
+    "name": "Smartsheet",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 80,
+    "name": "Harvest",
+    "website_hint": null,
+    "category": "Productivity & PM"
+  },
+  {
+    "id": 81,
+    "name": "Stripe",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 82,
+    "name": "Plaid",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 83,
+    "name": "Binance",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 84,
+    "name": "Paygent Connect",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 85,
+    "name": "iPayX",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 86,
+    "name": "QuickBooks",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 87,
+    "name": "Xero",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 88,
+    "name": "Brex",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 89,
+    "name": "Ramp",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 90,
+    "name": "PitchBook",
+    "website_hint": null,
+    "category": "Finance & Fintech"
+  },
+  {
+    "id": 91,
+    "name": "NotebookLM",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 92,
+    "name": "Otter.ai",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 93,
+    "name": "Fathom",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 94,
+    "name": "Consensus",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 95,
+    "name": "Reducto",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 96,
+    "name": "Devin",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 97,
+    "name": "higgsfield",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 98,
+    "name": "Mermaid CLI",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 99,
+    "name": "YouTube Transcript API",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  },
+  {
+    "id": 100,
+    "name": "Grain",
+    "website_hint": null,
+    "category": "AI, Research & Media-native"
+  }
+]
