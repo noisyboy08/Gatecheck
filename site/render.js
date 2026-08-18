@@ -174,3 +174,21 @@ document.getElementById('accuracyBand').innerHTML = `
   <div class="seg"><div class="n" style="color:var(--green)">12 / 15</div><div class="l">Resolved after verification (≈80%)</div><p class="seg-detail">Corrected or confirmed with a citable source.</p></div>
   <div class="seg"><div class="n" style="color:var(--amber)">3 / 15</div><div class="l">Honestly still uncertain (≈20%)</div><p class="seg-detail">No confident public answer found — flagged, not guessed.</p></div>
 `;
+
+// ---------- Sticky table header fix ----------
+// position:sticky on thead th breaks inside overflow-x:auto containers.
+// We instead watch the scroll and apply a visual indicator when the
+// header has scrolled past the nav (top of table out of view).
+(function() {
+  const thead = document.querySelector('#matrix thead');
+  const tableWrap = document.querySelector('#matrix .table-wrap');
+  if (!thead || !tableWrap) return;
+  const NAV_H = 62;
+  function onScroll() {
+    const rect = thead.getBoundingClientRect();
+    tableWrap.style.boxShadow = rect.bottom < NAV_H + 2
+      ? 'inset 0 3px 0 0 var(--signature)'
+      : '';
+  }
+  window.addEventListener('scroll', onScroll, {passive: true});
+})();

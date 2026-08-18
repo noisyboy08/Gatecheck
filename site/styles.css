@@ -100,7 +100,7 @@ section.alt{background:var(--bg-alt); border-top:1px solid var(--border-soft); b
 }
 .controls input{flex:1; min-width:180px;}
 .controls .count{font-family:var(--font-mono); font-size:12px; color:var(--muted); margin-left:auto;}
-.table-wrap{border:1px solid var(--border); border-radius:12px; overflow-x:auto; overflow-y:hidden;}
+.table-wrap{border:1px solid var(--border); border-radius:12px; overflow-x:auto;}
 table{width:100%; border-collapse:collapse; font-size:13.5px; table-layout:fixed;}
 col.c-id{width:32px;} col.c-name{width:182px;} col.c-cat{width:106px;}
 col.c-auth{width:142px;} col.c-gate{width:146px;} col.c-mcp{width:174px;}
@@ -110,7 +110,7 @@ td, th{overflow-wrap:break-word; word-break:break-word;}
 .table-wrap thead th{
   text-align:left; background:var(--panel2); color:var(--muted); font-weight:500;
   font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.06em;
-  padding:11px 14px; border-bottom:1px solid var(--border); position:sticky; top:62px;
+  padding:11px 14px; border-bottom:1px solid var(--border);
 }
 tbody tr{border-bottom:1px solid var(--border-soft); background:var(--panel);}
 tbody tr:hover{background:var(--panel2);}
